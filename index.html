@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&lt;system-color&gt; palette</title>
+</head>
+<body>
+  <h1>&lt;system-color&gt; palette</h1>
+  <p id="colour-scheme">
+    Colour scheme:
+    <label>
+      <input type="radio" name="colour-scheme" id="colour-scheme-auto" checked>
+      Auto
+    </label>
+    <label>
+      <input type="radio" name="colour-scheme" id="colour-scheme-light">
+      Light
+    </label>
+    <label>
+      <input type="radio" name="colour-scheme" id="colour-scheme-dark">
+      Dark
+    </label>
+  </p>
+  <div id="colours">
+    <div class="colour-entry">
+      <span class="well" style="--colour:AccentColor">
+        <span class="name">AccentColor</span>
+      </span>
+      <span class="desc">Background of accented user interface controls.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:AccentColorText">
+        <span class="name">AccentColorText</span>
+      </span>
+      <span class="desc">Text of accented user interface controls.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:ActiveText">
+        <span class="name">ActiveText</span>
+      </span>
+      <span class="desc">Text in active links. For light backgrounds, traditionally red.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:ButtonBorder">
+        <span class="name">ButtonBorder</span>
+      </span>
+      <span class="desc">The base border color for push buttons.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:ButtonFace">
+        <span class="name">ButtonFace</span>
+      </span>
+      <span class="desc">The face background color for push buttons.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:ButtonText">
+        <span class="name">ButtonText</span>
+      </span>
+      <span class="desc">Text on push buttons.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:Canvas">
+        <span class="name">Canvas</span>
+      </span>
+      <span class="desc">Background of application content or documents.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:CanvasText">
+        <span class="name">CanvasText</span>
+      </span>
+      <span class="desc">Text in application content or documents.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:Field">
+        <span class="name">Field</span>
+      </span>
+      <span class="desc">Background of input fields.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:FieldText">
+        <span class="name">FieldText</span>
+      </span>
+      <span class="desc">Text in input fields.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:GrayText">
+        <span class="name">GrayText</span>
+      </span>
+      <span class="desc">Disabled text. (Often, but not necessarily, gray.)</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:Highlight">
+        <span class="name">Highlight</span>
+      </span>
+      <span class="desc">Background of selected text, for example from <code>::selection</code>.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:HighlightText">
+        <span class="name">HighlightText</span>
+      </span>
+      <span class="desc">Text of selected text.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:LinkText">
+        <span class="name">LinkText</span>
+      </span>
+      <span class="desc">Text in non-active, non-visited links. For light backgrounds, traditionally blue.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:Mark">
+        <span class="name">Mark</span>
+      </span>
+      <span class="desc">Background of text that has been specially marked (such as by the HTML mark element).</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:MarkText">
+        <span class="name">MarkText</span>
+      </span>
+      <span class="desc">Text that has been specially marked (such as by the HTML mark element).</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:SelectedItem">
+        <span class="name">SelectedItem</span>
+      </span>
+      <span class="desc">Background of selected items, for example a selected checkbox.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:SelectedItemText">
+        <span class="name">SelectedItemText</span>
+      </span>
+      <span class="desc">Text of selected items.</span>
+    </div>
+    <div class="colour-entry">
+      <span class="well" style="--colour:VisitedText">
+        <span class="name">VisitedText</span>
+      </span>
+      <span class="desc">Text in visited links. For light backgrounds, traditionally purple.</span>
+    </div>
+  </div>
+  <svg height="0">
+    <defs>
+      <filter id="threshold" color-interpolation-filters="sRGB">
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 1"/>
+          <feFuncG type="discrete" tableValues="0 1"/>
+          <feFuncB type="discrete" tableValues="0 1"/>
+          <feFuncA type="discrete" tableValues="0 1 1 1 1 1 1 1 1 1"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, sans-serif;
+    }
+    body {
+      color: canvastext;
+      background-color: canvas;
+    }
+    body:has(#colour-scheme-auto:checked) {
+      color-scheme: inherit;
+    }
+    body:has(#colour-scheme-light:checked) {
+      color-scheme: light;
+    }
+    body:has(#colour-scheme-dark:checked) {
+      color-scheme: dark;
+    }
+    #colours {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .5rem .5rem;
+    }
+    .colour-entry {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+      align-items: center;
+
+      .well {
+        /* height: 1.5rem; */
+        /* min-width: 2rem; */
+        padding: .4em .5em;
+        border: medium solid currentColor;
+        border-radius: .25rem;
+        /* box-shadow: inset 0 0 .1rem black, inset .2rem .2rem .2rem black; */
+        background-color: var(--colour);
+      }
+      
+      .name {
+        /* color: var(--colour); */
+        /* filter: grayscale(100%) contrast(1000) invert(1); */
+        /* filter: grayscale(100%) url(#threshold); */
+        /* filter: grayscale(100%) opacity(100%) */
+        /* filter: contrast(200000000%) invert(100%); */
+        /* background-color: white; */
+        color: white;
+        /* background-clip: text; */
+        /* text-shadow: 1px 1px 1px black; */
+        /* mix-blend-mode: difference; */
+        -webkit-text-stroke: 4px black;
+        paint-order: stroke fill;
+        letter-spacing: .05em;
+        /* -webkit-text-fill-color: white; */
+        justify-self: center;
+        font-weight: bold;
+      }
+    }
+    code {
+      background-color: hsla(0, 0%, 0%, 0.2);
+      padding: .1eem;
+    }
+  </style>
+</body>
+</html>
